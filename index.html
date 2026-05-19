@@ -11,7 +11,7 @@ name="description"
 content="The Brief delivers global breaking news, politics, business, technology, sports, entertainment and world events in real time."
 >
 
-<link rel="stylesheet" href="style.css ">
+<link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -395,10 +395,7 @@ async function loadNews(){
 
 try{
 
-const response=
-await fetch(
-"news.json"
-);
+const response = await fetch("data/news.json");
 
 const articles=
 await response.json();
