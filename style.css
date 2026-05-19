@@ -114,3 +114,25 @@ p {
 .search-box { display: flex; gap: 5px; }
 .search-box input { padding: 8px; border: 1px solid #ccc; border-radius: 5px; width: 150px; }
 
+.category-tag {
+    background: #000;
+    color: #fff;
+    padding: 3px 8px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.read-time {
+    font-size: 0.8rem;
+    color: #888;
+}
+
