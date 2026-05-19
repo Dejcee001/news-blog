@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Brief - Premium Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="top-navbar">
+        <div class="nav-logo">The Brief</div>
+        <div class="nav-links">
+            <span>Tech Feed</span>
+            <span class="nav-live-dot"></span>
+        </div>
+    </nav>
+
+    <header>
+        <h1>The Brief</h1>
+        <p>Your daily dose of tech, automation, and AI news summarized.</p>
+    </header>
+
+    <main>
+        <section class="news-feed" id="news-feed">
+            <p style="text-align: center; color: #666666; font-family: sans-serif;">Assembling live assets...</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>The Brief © 2026 | Automated Premium Feed</p>
+    </footer>
+
+    <script>
+        // Fixed the missing function keyword here
+        async function loadLiveNews() {
+            try {
+                const response = await fetch('news.json');
+                const articles = await response.json();
+                
+                const feedContainer = document.getElementById('news-feed');
+                feedContainer.innerHTML = '';
+
+                articles.forEach(article => {
+                    const card = document.createElement('article');
+                    card.className = 'news-card';
+                    
+                    card.innerHTML = `
+                        <div class="news-text-content">
+                            <div class="meta">
+                                <span class="category">${article.category}</span>
+                                <span class="date">${article.date}</span>
+                            </div>
+                            <h2>${article.title}</h2>
+                            <p class="summary">${article.summary}</p>
+                            <a href="${article.link}" target="_blank" class="read-more">Read Full Story →</a>
+                        </div>
+                        <img src="${article.image}" class="news-image-frame" alt="News Preview">
+                    `;
+                    
+                    feedContainer.appendChild(card);
+                });
+            } catch (error) {
+                console.error(error);
+                document.getElementById('news-feed').innerHTML = '<p style="text-align: center; color: #dc2626;">Failed to initialize feed asset.</p>';
+            }
+        }
+        loadLiveNews();
+    </script>
+
+</body>
+</html>

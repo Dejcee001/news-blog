@@ -1,0 +1,31 @@
+name: Auto Refresh News Feed
+
+on:
+  schedule:
+    # This tells GitHub to run the script automatically every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_dispatch: # Allows you to also trigger it manually from GitHub if you want
+
+jobs:
+  refresh-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: pip install feedparser
+
+    - name: Run Scraper
+      run: python gatherer.py
+
+    - name: Install Vercel CLI
+      run: npm install -g vercel
+
+    - name: Deploy Update to Vercel
+      run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
