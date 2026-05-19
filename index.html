@@ -2,19 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Brief</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav>
     <div class="logo">The Brief</div>
+    <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search news...">
+        <button onclick="performSearch()">Search</button>
+    </div>
     <div class="menu">
         <button onclick="fetchNews('latest')">Latest</button>
         <button onclick="fetchNews('technology')">Tech</button>
         <button onclick="fetchNews('sports')">Sports</button>
-        <button onclick="fetchNews('business')">Business</button>
     </div>
 </nav>
+
     <main id="news-feed" class="news-grid">Loading live news...</main>
     <script src="script.js"></script>
 </body>

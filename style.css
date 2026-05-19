@@ -111,3 +111,6 @@ p {
     .menu button { padding: 8px 6px; font-size: 0.8rem; }
 }
 
+.search-box { display: flex; gap: 5px; }
+.search-box input { padding: 8px; border: 1px solid #ccc; border-radius: 5px; width: 150px; }
+
